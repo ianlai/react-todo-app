@@ -13,7 +13,8 @@ class App extends React.Component {
                 {id: 1, name: 'Clean house', isDone: false},
                 {id: 2, name: 'Read a book', isDone: false},
                 {id: 3, name: 'Go shopping', isDone: true}
-            ]
+            ],
+            globalId: 4
         }
         this.onClick = this.onClick.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -28,14 +29,15 @@ class App extends React.Component {
     }
 
     onClick(){
-        let {todos, text} = this.state;
-        const newId = todos.length + 1;
+        let {todos, text, globalId} = this.state;
+        const newId =  globalId++;
         this.setState({
             text: '',
             todos: [
                 ...this.state.todos, 
                 {id: newId, name: text, isDone: false}
-            ]
+            ],
+            globalId
         })
     }
 
@@ -64,13 +66,22 @@ class App extends React.Component {
         const {todos, text} = this.state;
 
         return (
-            <div>
-                <h1>Todo App</h1>
-                <input value={text} onChange={this.onChange}/>
-                <button onClick={this.onClick}>
-                    Add item
-                </button>
-                <ul>
+            <div className="container">
+                <h1 className="header">React Todo App</h1>
+
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="inputGroup-sizing-default">New Todo:</span>
+                    </div>
+                    <input type="text" className="form-control" 
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" 
+                    value={text} onChange={this.onChange}/>
+                    <div className="input-group-append">
+                        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.onClick}>+</button>
+                    </div>
+                </div>
+
+                <ul className="list-group">
                     {
                         todos.map(
                             t => 

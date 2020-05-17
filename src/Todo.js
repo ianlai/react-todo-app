@@ -18,16 +18,15 @@ class Todo extends Component{
     render(){
         const {id, name, isDone} = this.props;
         return (
-            <div>
-                <li>
-                    id:{id} ------ name: {name} ----- {isDone ? "O" : "X"}
+            <div className = "todo-item">
+                <li className="list-group-item"> 
+                    <span className ="todo-item">
+                        [{id}] {name} ----- {isDone ? "O" : "X"}
+                    </span>
+                    <button className = "todo-button" onClick={this.setDone}>Done</button> 
+                    <button className = "todo-button" onClick={this.remove}>Delete</button>     
                 </li>
-                <button onClick={this.remove}>
-                    Delete
-                </button>
-                <button onClick={this.setDone}>
-                    Done
-                </button>
+                
             </div>
         )
     }

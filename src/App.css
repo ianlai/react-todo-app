@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
+body {
+	font-family: 'Montserrat', sans-serif;
+	background: rgb(204, 235, 245);
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+	text-align: center;
+}
+h1 {
+    font: 800 40px 'Montserrat', sans-serif;
+    margin: 20px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul {
+    height: 400px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+li {
+    font: 300 20px 'Ubuntu', sans-serif;
+    background: rgb(110, 54, 89);
+    border-bottom: 3px solid #5887b6;
+    margin: 20px 0 0 0;
+}
+#inputGroup-sizing-default{
+    font: 400 20px 'Ubuntu', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-item{
+    width: 100%;
+}
+.list-group-item:hover{
+    background-color: rgb(82, 194, 184);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-button{
+    float: right;
 }
