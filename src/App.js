@@ -17,6 +17,7 @@ class App extends React.Component {
         }
         this.onClick = this.onClick.bind(this);
         this.onChange = this.onChange.bind(this);
+        this.removeTodo = this.removeTodo.bind(this);
     }
 
     onChange(e){
@@ -36,6 +37,15 @@ class App extends React.Component {
             ]
         })
     }
+
+    removeTodo(id){
+        console.log("removeTodo:", id)
+        let {todos} = this.state;
+        let newTodos = todos.filter((t) => t.id !== id);
+        this.setState({
+            todos: newTodos
+        });
+    }
     
     render() {
         const {todos, text} = this.state;
@@ -51,7 +61,8 @@ class App extends React.Component {
                     {
                         todos.map(
                             t => 
-                            <Todo id={t.id} name={t.name} isDone={t.isDone} />
+                            <Todo id={t.id} name={t.name} isDone={t.isDone} 
+                            remove={this.removeTodo}/>
                         )
                     }
                 </ul>
