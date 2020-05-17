@@ -8,6 +8,7 @@ class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
+            text: '',
             todos:[
                 {id: 1, name: 'Clean house', isDone: false},
                 {id: 2, name: 'Read a book', isDone: false},
@@ -15,6 +16,13 @@ class App extends React.Component {
             ]
         }
         this.onClick = this.onClick.bind(this);
+        this.onChange = this.onChange.bind(this);
+    }
+
+    onChange(e){
+        this.setState({
+            text: e.target.value
+        })
     }
 
     onClick(){
@@ -30,11 +38,12 @@ class App extends React.Component {
     }
     
     render() {
-        const {todos} = this.state;
+        const {todos, text} = this.state;
 
         return (
             <div>
                 <h1>Todo App</h1>
+                <input value={text} onChange={this.onChange}/>
                 <button onClick={this.onClick}>
                     Add item
                 </button>
