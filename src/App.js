@@ -14,6 +14,19 @@ class App extends React.Component {
                 {id: 3, name: 'Go shopping', isDone: true}
             ]
         }
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick(){
+        let {todos, text} = this.state;
+        const newId = todos.length + 1;
+        this.setState({
+            text: '',
+            todos: [
+                ...this.state.todos, 
+                {id: newId, name: text, isDone: false}
+            ]
+        })
     }
     
     render() {
@@ -22,6 +35,9 @@ class App extends React.Component {
         return (
             <div>
                 <h1>Todo App</h1>
+                <button onClick={this.onClick}>
+                    Add item
+                </button>
                 <ul>
                     {
                         todos.map(
