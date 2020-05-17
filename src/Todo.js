@@ -4,6 +4,11 @@ class Todo extends Component{
     constructor(props){
         super(props)
         this.remove = this.remove.bind(this);
+        this.setDone = this.setDone.bind(this);
+    }
+
+    setDone(){
+        this.props.setDone(this.props.id);
     }
 
     remove(){
@@ -15,10 +20,13 @@ class Todo extends Component{
         return (
             <div>
                 <li>
-                    id:{id} -- name: {name} -- {isDone ? "OK" : "Not Yet"}
+                    id:{id} ------ name: {name} ----- {isDone ? "O" : "X"}
                 </li>
                 <button onClick={this.remove}>
                     Delete
+                </button>
+                <button onClick={this.setDone}>
+                    Done
                 </button>
             </div>
         )
