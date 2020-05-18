@@ -1,11 +1,7 @@
 body {
 	font-family: 'Montserrat', sans-serif;
 	background: rgb(204, 235, 245);
-	background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
 }
-
 .header {
 	text-align: center;
 }
@@ -13,28 +9,31 @@ h1 {
     font: 800 40px 'Montserrat', sans-serif;
     margin: 20px 0;
 }
-
 ul {
     height: 400px;
 }
-
-li {
-    font: 300 20px 'Ubuntu', sans-serif;
-    background: rgb(110, 54, 89);
-    border-bottom: 3px solid #5887b6;
+li.list-group-item{
+    font: 500 24px 'Ubuntu', sans-serif;
     margin: 20px 0 0 0;
+    display: flex;
+}
+
+li:hover{
+    background: rgb(82, 194, 184);
+}
+li:hover button{
+    opacity: 1;
+}
+li span{
+    flex-grow: 1;
+}
+li button{
+    background: red;
+}
+
+.todo-done{
+    color: #ddd;
 }
 #inputGroup-sizing-default{
     font: 400 20px 'Ubuntu', sans-serif;
-}
-
-.todo-item{
-    width: 100%;
-}
-.list-group-item:hover{
-    background-color: rgb(82, 194, 184);
-}
-
-.todo-button{
-    float: right;
 }
