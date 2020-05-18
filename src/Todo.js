@@ -24,7 +24,7 @@ class Todo extends Component{
                 <span className = {isDone ? "todo-done" : ""} onClick={this.setDone}>
                     [{id}] {name}
                 </span>
-                <button className = "todo-button" onClick={this.remove}>Delete</button>     
+                <button onClick={this.remove}>DEL</button>     
             </li>
         )
     }

@@ -69,12 +69,11 @@ class App extends React.Component {
             <div className="container">
                 <h1 className="header">React Todo App</h1>
 
-                <div className="input-group mb-3">
+                <div className="input-group input-group-lg">
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="inputGroup-sizing-default">New Todo:</span>
+                        <span className="input-group-text" id="inputGroup-sizing-lg">New Todo:</span>
                     </div>
-                    <input type="text" className="form-control" 
-                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" 
+                    <input type="text" className = "input-box"
                     value={text} onChange={this.onChange}/>
                     <div className="input-group-append">
                         <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.onClick}>+</button>

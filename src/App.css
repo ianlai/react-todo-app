@@ -1,25 +1,31 @@
 body {
-	font-family: 'Montserrat', sans-serif;
 	background: rgb(204, 235, 245);
 }
 .header {
-	text-align: center;
-}
-h1 {
-    font: 800 40px 'Montserrat', sans-serif;
+    font: 500 40px 'Ubuntu', sans-serif;
+    text-align: center;
     margin: 20px 0;
+}
+.input-container{
+    height: 59px;
+    display: flex;
+}
+.input-box{
+    height: 59px;
+    font: 300 24px 'Ubuntu', sans-serif;
+    flex-grow: 1;
 }
 ul {
     height: 400px;
 }
 li.list-group-item{
-    font: 500 24px 'Ubuntu', sans-serif;
+    font: 300 24px 'Ubuntu', sans-serif;
     margin: 20px 0 0 0;
     display: flex;
+    transition: 0.5s;
 }
-
 li:hover{
-    background: rgb(82, 194, 184);
+    background: rgb(139, 224, 224)
 }
 li:hover button{
     opacity: 1;
@@ -28,9 +34,12 @@ li span{
     flex-grow: 1;
 }
 li button{
-    background: red;
+    background: #f33;
+    transition: opacity 0.5s;
+    opacity: 0;
+    color: whitesmoke;
+    font: 300 16px 'Ubuntu', sans-serif;
 }
-
 .todo-done{
     color: #ddd;
 }
