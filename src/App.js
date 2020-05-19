@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import Todo from './Todo'
 
-
 class App extends React.Component {
     constructor(props){
         super(props);
@@ -16,7 +15,8 @@ class App extends React.Component {
             ],
             globalId: 4
         }
-        this.onClick = this.onClick.bind(this);
+        this.onClickAdd = this.onClickAdd.bind(this);
+        this.onClickSort = this.onClickSort.bind(this);
         this.onChange = this.onChange.bind(this);
         this.removeTodo = this.removeTodo.bind(this);
         this.setDoneTodo = this.setDoneTodo.bind(this);
@@ -28,7 +28,7 @@ class App extends React.Component {
         })
     }
 
-    onClick(){
+    onClickAdd(){
         let {todos, text, globalId} = this.state;
         const newId =  globalId++;
         this.setState({
@@ -38,6 +38,15 @@ class App extends React.Component {
                 {id: newId, name: text, isDone: false}
             ],
             globalId
+        })
+    }
+    onClickSort(){
+        let {todos} = this.state;
+        let undoneTodos = todos.filter((t) => t.isDone === false);
+        let sortedTodos = undoneTodos.concat(todos.filter((t) => t.isDone === true));
+
+        this.setState({
+            todos: sortedTodos
         })
     }
 
@@ -76,7 +85,8 @@ class App extends React.Component {
                     <input type="text" className = "input-box"
                     value={text} onChange={this.onChange}/>
                     <div className="input-group-append">
-                        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.onClick}>+</button>
+                        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.onClickAdd}>Add</button>
+                        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.onClickSort}>Sort</button>
                     </div>
                 </div>
 
