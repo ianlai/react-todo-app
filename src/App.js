@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Todo from './Todo'
 import Button from './Button'
+import Clock from './Clock'
 
 class App extends React.Component {
     constructor(props){
@@ -23,7 +24,7 @@ class App extends React.Component {
         this.removeTodo = this.removeTodo.bind(this);
         this.setDoneTodo = this.setDoneTodo.bind(this);
     }
-
+  
     handleInboxKeyPress(e){
         if(e.key === 'Enter'){
             this.handleClickAdd();
@@ -85,6 +86,12 @@ class App extends React.Component {
         return (
             <div className="container">
                 <h1 className="header">React Todo App</h1>
+                
+                <div className="countdown-container">
+                    <span>You still have</span>
+                    <Clock/>
+                    <span>for today to clear them all :)</span>
+                </div>
 
                 <div className="input-group input-group-lg">
                     <div className="input-group-prepend">
@@ -101,9 +108,7 @@ class App extends React.Component {
                 <ul className="list-group">
                     {
                         todos.map(
-                            t => 
-                            <Todo id={t.id} name={t.name} isDone={t.isDone} 
-                            remove={this.removeTodo} setDone={this.setDoneTodo}/>
+                            t => <Todo todo={t} remove={this.removeTodo} setDone={this.setDoneTodo}/>
                         )
                     }
                 </ul>

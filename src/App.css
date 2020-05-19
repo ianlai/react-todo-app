@@ -47,3 +47,11 @@ li button{
 #inputGroup-sizing-default{
     font: 400 20px 'Ubuntu', sans-serif;
 }
+.countdown-clock{
+    margin: 0 10px;
+    color: #f33;
+}
+.countdown-container{
+    text-align: center;
+    margin: 10px auto;
+}

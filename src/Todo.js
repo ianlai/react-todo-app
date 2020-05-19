@@ -8,19 +8,19 @@ class Todo extends Component{
     }
 
     setDone(){
-        this.props.setDone(this.props.id);
+        this.props.setDone(this.props.todo.id);
     }
 
     remove(){
-        this.props.remove(this.props.id);
+        this.props.remove(this.props.todo.id);
     }
 
     render(){
-        const {id, name, isDone} = this.props;
+        const {todo} = this.props;
         return (
             <li className="list-group-item"> 
-                <span className = {isDone ? "todo-done" : ""} onClick={this.setDone}>
-                    [{id}] {name}
+                <span className = {todo.isDone ? "todo-done" : ""} onClick={this.setDone}>
+                    [{todo.id}] {todo.name}
                 </span>
                 <button onClick={this.remove}>DEL</button>     
             </li>
