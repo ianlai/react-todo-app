@@ -15,20 +15,27 @@ class App extends React.Component {
             ],
             globalId: 4
         }
-        this.onClickAdd = this.onClickAdd.bind(this);
-        this.onClickSort = this.onClickSort.bind(this);
-        this.onChange = this.onChange.bind(this);
+        this.handleClickAdd = this.handleClickAdd.bind(this);
+        this.handleClickSort = this.handleClickSort.bind(this);
+        this.handleInboxKeyPress = this.handleInboxKeyPress.bind(this);
+        this.handleInboxChange = this.handleInboxChange.bind(this);
         this.removeTodo = this.removeTodo.bind(this);
         this.setDoneTodo = this.setDoneTodo.bind(this);
     }
 
-    onChange(e){
+    handleInboxKeyPress(e){
+        if(e.key === 'Enter'){
+            this.handleClickAdd();
+        }
+    }
+
+    handleInboxChange(e){
         this.setState({
             text: e.target.value
         })
     }
 
-    onClickAdd(){
+    handleClickAdd(){
         let {todos, text, globalId} = this.state;
         const newId =  globalId++;
         this.setState({
@@ -40,7 +47,7 @@ class App extends React.Component {
             globalId
         })
     }
-    onClickSort(){
+    handleClickSort(){
         let {todos} = this.state;
         let undoneTodos = todos.filter((t) => t.isDone === false);
         let sortedTodos = undoneTodos.concat(todos.filter((t) => t.isDone === true));
@@ -83,10 +90,10 @@ class App extends React.Component {
                         <span className="input-group-text" id="inputGroup-sizing-lg">New Todo:</span>
                     </div>
                     <input type="text" className = "input-box"
-                    value={text} onChange={this.onChange}/>
+                    value={text} onChange={this.handleInboxChange} onKeyPress={this.handleInboxKeyPress}/>
                     <div className="input-group-append">
-                        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.onClickAdd}>Add</button>
-                        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.onClickSort}>Sort</button>
+                        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.handleClickAdd}>Add</button>
+                        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.handleClickSort}>Sort</button>
                     </div>
                 </div>
 

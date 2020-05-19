@@ -42,6 +42,7 @@ li button{
 }
 .todo-done{
     color: #ddd;
+    text-decoration: line-through;
 }
 #inputGroup-sizing-default{
     font: 400 20px 'Ubuntu', sans-serif;
