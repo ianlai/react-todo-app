@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Todo from './Todo'
+import Button from './Button'
 
 class App extends React.Component {
     constructor(props){
@@ -92,8 +93,8 @@ class App extends React.Component {
                     <input type="text" className = "input-box"
                     value={text} onChange={this.handleInboxChange} onKeyPress={this.handleInboxKeyPress}/>
                     <div className="input-group-append">
-                        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.handleClickAdd}>Add</button>
-                        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.handleClickSort}>Sort</button>
+                        <Button name='Add' onClick={this.handleClickAdd}/>
+                        <Button name='Sort' onClick={this.handleClickSort}/>
                     </div>
                 </div>
 
