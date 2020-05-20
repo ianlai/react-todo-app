@@ -23,20 +23,30 @@ class App extends React.Component {
         this.handleInboxChange = this.handleInboxChange.bind(this);
         this.removeTodo = this.removeTodo.bind(this);
         this.setDoneTodo = this.setDoneTodo.bind(this);
+        this.saveToLocalStoreage = this.saveToLocalStoreage.bind(this);
     }
-  
+    componentWillMount() {
+        let globalId = localStorage.getItem("globalId");
+        let todos = JSON.parse(localStorage.getItem("todos"));
+        console.log(todos);
+        this.setState({
+            todos: todos,
+            globalId: globalId
+        });
+    }
+    componentWillUnmount() {
+        
+    }
     handleInboxKeyPress(e){
         if(e.key === 'Enter'){
             this.handleClickAdd();
         }
     }
-
     handleInboxChange(e){
         this.setState({
             text: e.target.value
         })
     }
-
     handleClickAdd(){
         let {todos, text, globalId} = this.state;
         const newId =  globalId++;
@@ -58,17 +68,15 @@ class App extends React.Component {
             todos: sortedTodos
         })
     }
-
     removeTodo(id){
-        let {todos} = this.state;
+        const {todos} = this.state;
         let newTodos = todos.filter((t) => t.id !== id);
         this.setState({
             todos: newTodos
         });
     }
-
     setDoneTodo(id){
-        let {todos} = this.state;
+        const {todos} = this.state;
         let newTodos = todos.map((t) => {
             if(t.id === id){
                 t.isDone = !t.isDone;
@@ -79,10 +87,16 @@ class App extends React.Component {
             todos: newTodos
         });
     }
-    
+    saveToLocalStoreage(){
+        const {todos, globalId} = this.state;
+        localStorage.clear();
+        localStorage.setItem("todos", JSON.stringify(todos));
+        localStorage.setItem("globalId", globalId);
+    }
     render() {
+        this.saveToLocalStoreage();
         const {todos, text} = this.state;
-
+        
         return (
             <div className="container">
                 <h1 className="header">React Todo App</h1>
