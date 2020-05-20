@@ -8,7 +8,16 @@ import Clock from './Clock'
 class App extends React.Component {
     constructor(props){
         super(props);
-        this.reset();
+        this.state={
+            text: '',
+            todos:[
+                {id: 1, name: 'Clean the house', isDone: false},
+                {id: 2, name: 'Learn React', isDone: false},
+                {id: 3, name: 'Buy groceries ', isDone: true}
+            ],
+            globalId: 4
+        }
+    
         this.handleClickAdd = this.handleClickAdd.bind(this);
         this.handleClickSort = this.handleClickSort.bind(this);
         this.handleClickReset = this.handleClickReset.bind(this);
@@ -33,10 +42,13 @@ class App extends React.Component {
         let globalId = localStorage.getItem("globalId");
         let todos = JSON.parse(localStorage.getItem("todos"));
         console.log(todos);
-        this.setState({
-            todos: todos,
-            globalId: globalId
-        });
+        if(todos !== null)
+        {
+            this.setState({
+                todos: todos,
+                globalId: globalId
+            });
+        }
     }
     componentWillUnmount() {
         
@@ -103,7 +115,7 @@ class App extends React.Component {
     render() {
         this.saveToLocalStoreage();
         const {todos, text} = this.state;
-        
+        console.log(todos);
         return (
             <div className="container">
                 <h1 className="header">React Todo App</h1>
