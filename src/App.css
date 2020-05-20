@@ -35,7 +35,10 @@ body {
 }
 .own-button{
     background: rgb(204, 245, 233);
-    font: 600 24px 'Ubuntu', sans-serif;
+    font: 300 24px 'Ubuntu', sans-serif;
+}
+#reset-button{
+    background: rgb(245, 214, 204);
 }
 
 /* =========== Todo List =========== */
