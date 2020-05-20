@@ -13,7 +13,7 @@ class Button extends Component{
     render(){
         const {name} = this.props;
         return (
-            <button className="btn btn-outline-secondary" type="button"
+            <button className="btn btn-outline-secondary own-button" type="button"
             onClick={this.handleClick}>
                 {name}
             </button>

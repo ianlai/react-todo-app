@@ -97,7 +97,7 @@ class App extends React.Component {
                     <div className="input-group-prepend">
                         <span className="input-group-text" id="inputGroup-sizing-lg">New Todo:</span>
                     </div>
-                    <input type="text" className = "input-box"
+                    <input type="text" className = "input-box" placeholder=" Press enter to add"
                     value={text} onChange={this.handleInboxChange} onKeyPress={this.handleInboxKeyPress}/>
                     <div className="input-group-append">
                         <Button name='Add' onClick={this.handleClickAdd}/>

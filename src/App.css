@@ -2,10 +2,22 @@ body {
 	background: rgb(204, 235, 245);
 }
 .header {
-    font: 500 40px 'Ubuntu', sans-serif;
+    font: 100 40px 'Ubuntu', sans-serif;
     text-align: center;
     margin: 20px 0;
 }
+
+/* =========== Clock =========== */
+.countdown-clock{
+    margin: 0 10px;
+    color: #f33;
+}
+.countdown-container{
+    text-align: center;
+    margin: 10px auto;
+}
+
+/* =========== Input =========== */
 .input-container{
     height: 59px;
     display: flex;
@@ -15,6 +27,18 @@ body {
     font: 300 24px 'Ubuntu', sans-serif;
     flex-grow: 1;
 }
+::placeholder {
+    color: rgb(211, 204, 204);
+  }
+#inputGroup-sizing-lg{
+    font: 300 24px 'Ubuntu', sans-serif;
+}
+.own-button{
+    background: rgb(204, 245, 233);
+    font: 600 24px 'Ubuntu', sans-serif;
+}
+
+/* =========== Todo List =========== */
 ul {
     height: 400px;
 }
@@ -43,15 +67,4 @@ li button{
 .todo-done{
     color: #ddd;
     text-decoration: line-through;
-}
-#inputGroup-sizing-default{
-    font: 400 20px 'Ubuntu', sans-serif;
-}
-.countdown-clock{
-    margin: 0 10px;
-    color: #f33;
-}
-.countdown-container{
-    text-align: center;
-    margin: 10px auto;
 }
