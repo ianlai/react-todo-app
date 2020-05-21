@@ -1,16 +1,17 @@
 body {
-	background: rgb(204, 235, 245);
+	background: rgb(95, 106, 167);
 }
 .header {
-    font: 100 40px 'Ubuntu', sans-serif;
+    font: 300 40px 'Futura', sans-serif;
     text-align: center;
     margin: 20px 0;
 }
 
 /* =========== Clock =========== */
 .countdown-clock{
+    font: 800 20px 'Ubuntu', sans-serif;
     margin: 0 10px;
-    color: #f33;
+    color: rgb(252, 59, 10);
 }
 .countdown-container{
     text-align: center;
@@ -37,7 +38,7 @@ body {
     background: rgb(204, 245, 233);
     font: 300 24px 'Ubuntu', sans-serif;
 }
-#reset-button{
+.own-button.reset{
     background: rgb(245, 214, 204);
 }
 

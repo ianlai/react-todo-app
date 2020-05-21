@@ -5,10 +5,9 @@ import Todo from './Todo'
 import Button from './Button'
 import Clock from './Clock'
 
+
 class App extends React.Component {
-    constructor(props){
-        super(props);
-        this.state={
+    initState = {
             text: '',
             todos:[
                 {id: 1, name: 'Clean the house', isDone: false},
@@ -17,7 +16,9 @@ class App extends React.Component {
             ],
             globalId: 4
         }
-    
+    constructor(props){
+        super(props);
+        this.state = this.initState;
         this.handleClickAdd = this.handleClickAdd.bind(this);
         this.handleClickSort = this.handleClickSort.bind(this);
         this.handleClickReset = this.handleClickReset.bind(this);
@@ -28,15 +29,7 @@ class App extends React.Component {
         this.saveToLocalStoreage = this.saveToLocalStoreage.bind(this);
     }
     reset(){
-        this.setState({
-            text: '',
-            todos:[
-                {id: 1, name: 'Clean the house', isDone: false},
-                {id: 2, name: 'Learn React', isDone: false},
-                {id: 3, name: 'Buy groceries ', isDone: true}
-            ],
-            globalId: 4
-        });
+        this.setState(this.initState);
     }
     componentWillMount() {
         let globalId = localStorage.getItem("globalId");
@@ -135,7 +128,7 @@ class App extends React.Component {
                     <div className="input-group-append">
                         <Button name='Add' onClick={this.handleClickAdd}/>
                         <Button name='Sort' onClick={this.handleClickSort}/>
-                        <Button name='Reset' id="reset-button" onClick={this.handleClickReset}/>
+                        <Button name='Reset' type='reset' onClick={this.handleClickReset}/>
                     </div>
                 </div>
 

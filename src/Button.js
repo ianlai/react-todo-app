@@ -11,9 +11,9 @@ class Button extends Component{
     }
 
     render(){
-        const {name} = this.props;
+        const {name, type} = this.props;
         return (
-            <button className="btn btn-outline-secondary own-button" type="button"
+            <button className= {`btn btn-outline-secondary own-button ${type}`}
             onClick={this.handleClick}>
                 {name}
             </button>
