@@ -1,23 +1,25 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
-class Button extends Component{
-    constructor(props){
-        super(props)
+class Button extends Component {
+    constructor(props) {
+        super(props);
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(){
+    handleClick() {
         this.props.onClick();
     }
 
-    render(){
-        const {name, type} = this.props;
+    render() {
+        const { name, type } = this.props;
         return (
-            <button className= {`btn btn-outline-secondary own-button ${type}`}
-            onClick={this.handleClick}>
+            <button
+                className={`btn btn-outline-secondary own-button ${type}`}
+                onClick={this.handleClick}
+            >
                 {name}
             </button>
-        )
+        );
     }
 }
 

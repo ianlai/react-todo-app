@@ -1,44 +1,44 @@
 body {
-	background: rgb(95, 106, 167);
+    background: rgb(95, 106, 167);
 }
 .header {
-    font: 300 40px 'Futura', sans-serif;
+    font: 300 40px "Futura", sans-serif;
     text-align: center;
     margin: 20px 0;
 }
 
 /* =========== Clock =========== */
-.countdown-clock{
-    font: 800 20px 'Ubuntu', sans-serif;
+.countdown-clock {
+    font: 800 20px "Ubuntu", sans-serif;
     margin: 0 10px;
     color: rgb(252, 59, 10);
 }
-.countdown-container{
+.countdown-container {
     text-align: center;
     margin: 10px auto;
 }
 
 /* =========== Input =========== */
-.input-container{
+.input-container {
     height: 59px;
     display: flex;
 }
-.input-box{
+.input-box {
     height: 59px;
-    font: 300 24px 'Ubuntu', sans-serif;
+    font: 300 24px "Ubuntu", sans-serif;
     flex-grow: 1;
 }
 ::placeholder {
     color: rgb(211, 204, 204);
-  }
-#inputGroup-sizing-lg{
-    font: 300 24px 'Ubuntu', sans-serif;
 }
-.own-button{
+#inputGroup-sizing-lg {
+    font: 300 24px "Ubuntu", sans-serif;
+}
+.own-button {
     background: rgb(204, 245, 233);
-    font: 300 24px 'Ubuntu', sans-serif;
+    font: 300 24px "Ubuntu", sans-serif;
 }
-.own-button.reset{
+.own-button.reset {
     background: rgb(245, 214, 204);
 }
 
@@ -46,29 +46,28 @@ body {
 ul {
     height: 400px;
 }
-li.list-group-item{
-    font: 300 24px 'Ubuntu', sans-serif;
+li.list-group-item {
+    font: 300 24px "Ubuntu", sans-serif;
     margin: 20px 0 0 0;
     display: flex;
     transition: 0.5s;
 }
-li:hover{
-    background: rgb(139, 224, 224)
+li:hover {
+    background: rgb(139, 224, 224);
 }
-li:hover button{
+li:hover button {
     opacity: 1;
 }
-li span{
+li span {
     flex-grow: 1;
 }
-li button{
+li button {
     background: #f33;
     transition: opacity 0.5s;
     opacity: 0;
     color: whitesmoke;
-    font: 300 16px 'Ubuntu', sans-serif;
+    font: 300 16px "Ubuntu", sans-serif;
 }
-.todo-done{
+.todo-done {
     color: #ddd;
-    text-decoration: line-through;
 }
