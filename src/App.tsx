@@ -1,11 +1,25 @@
-import React from "react";
+import React, { KeyboardEvent, ChangeEvent } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Todo from "./Todo";
 import Button from "./Button";
 import Clock from "./Clock";
 
-class App extends React.Component {
+interface AppProps {}
+interface AppState {
+    text: string
+    todos: TodoType[]
+    globalId: number
+    numOfDone: number
+    numOfUndone: number 
+}
+interface TodoType{
+    id: number;
+    name: string;
+    isDone: boolean;
+}
+
+class App extends React.Component<AppProps, AppState> {
     initState = {
         text: "",
         todos: [
@@ -17,7 +31,7 @@ class App extends React.Component {
         numOfDone: 1,
         numOfUndone: 2
     };
-    constructor(props) {
+    constructor(props: AppProps) {
         super(props);
         this.state = this.initState;
         this.handleClickAdd = this.handleClickAdd.bind(this);
@@ -33,8 +47,8 @@ class App extends React.Component {
         this.setState(this.initState);
     }
     componentDidMount() {
-        let globalId = localStorage.getItem("globalId");
-        let todos = JSON.parse(localStorage.getItem("todos"));
+        let globalId = parseInt(localStorage.getItem("globalId") || '{}');
+        let todos = JSON.parse(localStorage.getItem("todos") || '{}');  //getItem returns string or null
         console.log(todos);
         if (todos !== null) {
             this.setState({
@@ -46,12 +60,12 @@ class App extends React.Component {
     componentDidUpdate() {
         this.saveToLocalStorage();
     }
-    handleInboxKeyPress(e) {
+    handleInboxKeyPress(e: KeyboardEvent) {
         if (e.key === "Enter") {
             this.handleClickAdd();
         }
     }
-    handleInboxChange(e) {
+    handleInboxChange(e: ChangeEvent<HTMLInputElement>) {
         this.setState({
             text: e.target.value
         });
@@ -81,14 +95,14 @@ class App extends React.Component {
     handleClickReset() {
         this.reset();
     }
-    handleRemoveTodo(id) {
+    handleRemoveTodo(id: number) {
         const { todos } = this.state;
         let newTodos = todos.filter(t => t.id !== id);
         this.setState({
             todos: newTodos
         });
     }
-    handleSetDoneTodo(id) {
+    handleSetDoneTodo(id: number) {
         const { todos } = this.state;
         let newTodos = todos.map(t => {
             if (t.id === id) {
@@ -104,7 +118,7 @@ class App extends React.Component {
         const { todos, globalId } = this.state;
         localStorage.clear();
         localStorage.setItem("todos", JSON.stringify(todos));
-        localStorage.setItem("globalId", globalId);
+        localStorage.setItem("globalId", globalId.toString());
     }
     render() {
         const { todos, text } = this.state;
@@ -136,13 +150,9 @@ class App extends React.Component {
                         onKeyPress={this.handleInboxKeyPress}
                     />
                     <div className="input-group-append">
-                        <Button name="Add" onClick={this.handleClickAdd} />
-                        <Button name="Sort" onClick={this.handleClickSort} />
-                        <Button
-                            name="Reset"
-                            type="reset"
-                            onClick={this.handleClickReset}
-                        />
+                        <Button name="Add" type="" onClick={this.handleClickAdd} />
+                        <Button name="Sort" type="" onClick={this.handleClickSort} />
+                        <Button name="Reset" type="reset" onClick={this.handleClickReset} />
                     </div>
                 </div>
 
