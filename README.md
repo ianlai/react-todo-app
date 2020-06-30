@@ -7,6 +7,7 @@
 - Reset the todo list to default state
 - Provide a countdown clock to remind you how much the time of today is left
 - Save the list in `local storage` and load it back when you re-open the page
+- Provide a counter which you can increase or decrease with no meaning
 
 ## 2. History
 - 2020.05: This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

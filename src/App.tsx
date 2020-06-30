@@ -4,6 +4,7 @@ import "./App.css";
 import Todo from "./Todo";
 import Button from "./Button";
 import Clock from "./Clock";
+import Counter from "./Counter";
 
 interface AppProps {}
 interface AppState {
@@ -125,11 +126,14 @@ class App extends React.Component<AppProps, AppState> {
         return (
             <div className="container">
                 <h1 className="header">React Todo App</h1>
-
-                <div className="countdown-container">
-                    <span>You still have</span>
-                    <Clock />
-                    <span>for today to clear them all :)</span>
+                
+                <div className="subcontainer">
+                    <div className="countdown-container">
+                        <span>You still have</span>
+                        <Clock />
+                        <span>for today to clear them all :)</span>
+                    </div>
+                    <Counter/>
                 </div>
 
                 <div className="input-group input-group-lg">
@@ -166,6 +170,7 @@ class App extends React.Component<AppProps, AppState> {
                         />
                     ))}
                 </ul>
+
             </div>
         );
     }
