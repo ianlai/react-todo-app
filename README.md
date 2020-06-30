@@ -1,15 +1,19 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # react-todo-app
-## Provided Features
-- Add, remove, toggle a todo item
-- Sort the todo items based on done status
-- Reset the todo list 
+
+## 1. Features
+- `Add`, `remove`, `toggle` a todo item
+- Sort the todo items based on whether it is done
+- Reset the todo list to default state
 - Provide a countdown clock to remind you how much the time of today is left
-- Save the list in local storage and load it back when re-open the page
+- Save the list in `local storage` and load it back when you re-open the page
+
+## 2. History
+- 2020.05: This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 2020.06: The project is migrated from JavaScript to TypeScript
 
 
-## Available Scripts
+## 3. Available Scripts
 
 In the project directory, you can run:
 
