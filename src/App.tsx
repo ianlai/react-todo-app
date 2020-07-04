@@ -5,6 +5,7 @@ import Todo from "./Todo";
 import Button from "./Button";
 import Clock from "./Clock";
 import Counter from "./Counter";
+import { TodoType } from "./type";
 
 interface AppProps {}
 interface AppState {
@@ -14,11 +15,7 @@ interface AppState {
     numOfDone: number
     numOfUndone: number 
 }
-interface TodoType{
-    id: number;
-    name: string;
-    isDone: boolean;
-}
+
 
 class App extends React.Component<AppProps, AppState> {
     initState = {

@@ -1,15 +1,10 @@
 import React from "react";
+import { TodoType } from "./type";
 
 interface TodoProps {
-    todo: Todo;
+    todo: TodoType;
     handleRemoveTodo: (id: number) => void;
     handleSetDoneTodo: (id: number) => void;
-}
-
-interface Todo{
-    id: number;
-    name: string;
-    isDone: boolean;
 }
 
 const Todo = (props: TodoProps) => (
