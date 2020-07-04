@@ -29,17 +29,13 @@ interface ButtonProps {
 class Button extends Component<ButtonProps> {
     constructor(props: ButtonProps) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
-    }
-    handleClick() {
-        this.props.onClick();
     }
     render() {
         const { name, type } = this.props;
         return (
             <button
                 className={`btn btn-outline-secondary own-button ${type}`}
-                onClick={this.handleClick}
+                onClick={this.props.onClick}
             >
                 {name}
             </button>

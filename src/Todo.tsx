@@ -1,5 +1,5 @@
 import React from "react";
-import { TodoType } from "./type";
+import { TodoType } from "./types";
 
 interface TodoProps {
     todo: TodoType;

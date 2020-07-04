@@ -5,7 +5,7 @@ import Todo from "./Todo";
 import Button from "./Button";
 import Clock from "./Clock";
 import Counter from "./Counter";
-import { TodoType } from "./type";
+import { TodoType } from "./types";
 
 interface AppProps {}
 interface AppState {
